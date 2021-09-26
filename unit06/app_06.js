@@ -117,17 +117,19 @@ console.log(t8('example_path'));
 // Создайте функцию t9, которая принимает два параметра - имя папки и файла и проверяет есть ли данный файл в папке. Функция должна возвращать true или false.
 
 function t9(folder, file) {
-
+    return fs.existsSync(folder +'/'+file)
 }
 
-console.log('folder', 'file');
+console.log(t9('folder', 'file'));
 
 
 // Task 10
 // Создайте функцию t10, которая принимает имя файла и которая возвращает false если файла нет в текущей папке или его размер равен нулю и размер файла если он существует и его размер больше нуля.
 
 function t10(a) {
-
+    return fs.existsSync(a) ? 
+    (fs.statSync(a).size === 0 ? false : fs.statSync(a).size) :
+    false
 }
 
 console.log(t10('filename'));
